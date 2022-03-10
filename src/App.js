@@ -9,6 +9,24 @@ import "./App.css";
 function App() {
 	return (
 		<div className="App">
+			<div>
+				<div className="Navigation">
+					<div className="NameHolder">
+						<h1>jamaria</h1>
+					</div>
+					<div className="LinkContainer">
+						<a href="/Home">Home</a>
+
+						<a href="/About">About</a>
+
+						<a href="/Projects">Projects</a>
+
+						<a href="/Contact" className="Hire">
+							Hire Me
+						</a>
+					</div>
+				</div>
+			</div>
 			<body className="split-down container">
 				<video autoPlay muted loop src={video1} />
 				<div className="introduction container">
