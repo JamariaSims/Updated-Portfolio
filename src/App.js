@@ -4,6 +4,7 @@ import Picture2 from "./assets/images/Picture2.jpg";
 import Picture3 from "./assets/images/Picture3.jpg";
 import Picture4 from "./assets/images/Picture4.jpg";
 import Picture5 from "./assets/images/Picture4.jpg";
+import email from "./assets/icons/email.svg";
 import "./App.css";
 
 function App() {
@@ -150,31 +151,33 @@ function App() {
 								possible.
 							</p>
 							<br />
-							<p className="container-body-info">
-								Email: JamariaxSims@gmail.com
-							</p>
+							<div className="email">
+								<img className="emailIcon" src={email}></img>
+								<p className="email">JamariaxSims@gmail.com</p>
+							</div>
 						</div>
 						<div className="form split-down">
 							<div className="split-right">
-								<label>
-									First Name <input type={"text"} />
+								<label htmlFor="firstName">
+									First Name <input id="firstName" type={"text"} />
 								</label>
 
-								<label>
-									Last Name <input type={"text"} />
+								<label htmlFor="lastName">
+									Last Name <input id="lastName" type={"text"} />
 								</label>
 							</div>
 							<div className="split-right">
-								<label>
-									Email <input type={"text"} />
+								<label htmlFor="email">
+									Email <input id="email" type={"email"} />
 								</label>
-								<label>
-									Phone <input type={"text"} />
+								<label htmlFor="phoneNumber">
+									Phone <input id="phoneNumber" type={"number"} />
 								</label>
 							</div>
 
-							<label>Message</label>
-							<textarea rows="5" cols="40" />
+							<label htmlFor="message">Message</label>
+							<br></br>
+							<textarea id="message" rows="5" cols="40" />
 							<button>SEND</button>
 						</div>
 					</div>
