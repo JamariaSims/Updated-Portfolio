@@ -136,6 +136,49 @@ function App() {
 						</div>
 					</div>
 				</div>
+				<div className="split-down contactForm container">
+					<h2 className="container-title">Contact Me</h2>
+					<p className="container-title-info">
+						Any question or remarks? Just send me a message!
+					</p>
+					<div className="split-right container">
+						<div className="split-down container">
+							<h2 className="container-body-title">Contact Information</h2>
+							<br />
+							<p className="container-body-info">
+								Please fill out the form and I'll get back to you as soon as
+								possible.
+							</p>
+							<br />
+							<p className="container-body-info">
+								Email: JamariaxSims@gmail.com
+							</p>
+						</div>
+						<div className="form split-down">
+							<div className="split-right">
+								<label>
+									First Name <input type={"text"} />
+								</label>
+
+								<label>
+									Last Name <input type={"text"} />
+								</label>
+							</div>
+							<div className="split-right">
+								<label>
+									Email <input type={"text"} />
+								</label>
+								<label>
+									Phone <input type={"text"} />
+								</label>
+							</div>
+
+							<label>Message</label>
+							<textarea rows="5" cols="40" />
+							<button>SEND</button>
+						</div>
+					</div>
+				</div>
 			</body>
 		</div>
 	);
