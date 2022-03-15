@@ -24,37 +24,31 @@ const validateEmail = (input) => {
 	return false;
 };
 
-const sendEmail = (e) => {
-	e.preventDefault();
-
-	emailjs
-		.sendForm(
-			"service_rfojsgq",
-			"template_jo44ype",
-			e.target,
-			"OvtRHPiCQy7ySLPDh"
-		)
-		.then(
-			(result) => {
-				console.log(result.text);
-			},
-			(error) => {
-				console.log(error.text);
-			}
-		);
-};
-
 function App() {
 	const [state, setState] = useState(initialState);
 	const onInputChange = (event) => {
 		const { name, value } = event.target;
 		setState({ ...state, [name]: value });
 	};
-	const onInputSubmit = (event) => {
-		event.preventDefault();
-		console.log(state);
-		sendEmail(event);
-		setState(initialState);
+	const sendEmail = (e) => {
+		e.preventDefault();
+
+		emailjs
+			.sendForm(
+				"service_rfojsgq",
+				"template_jo44ype",
+				e.target,
+				"OvtRHPiCQy7ySLPDh"
+			)
+			.then(
+				(result) => {
+					console.log(result.text);
+					setState(initialState);
+				},
+				(error) => {
+					console.log(error.text);
+				}
+			);
 	};
 	return (
 		<div className="App">
