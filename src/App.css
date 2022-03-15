@@ -440,7 +440,8 @@ video{
   text-shadow: 
   0.05em 0 0 rgba(255, 0, 0, 0.75),
   -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-  -0.05em 0.05em 0 rgba(0, 0, 255, 0.75)
+  -0.05em 0.05em 0 rgba(0, 0, 255, 0.75);
+
 }
 .container-body-info{
   font-size:var(--textSize1);
@@ -456,16 +457,16 @@ video{
   -0.05em 0.05em 0 rgba(0, 0, 255, 0.75);
 }
 .form{
-  margin: 0% auto;
-  padding: 5%;
-  border-bottom: var(--color3) solid 1px;
+
+  padding: 1.8rem;
   word-spacing: 0.5rem;
   margin: 0% auto;
-  line-height: 1.5rem;
-  box-shadow: #1c55511f 20px 20px 100px;
+  box-shadow: #1C5551 20px 20px 100px;
+  background: #1C5551;
 }
 .form label{
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  word-spacing: 0.1rem;
   text-shadow: 
   0.05em 0 0 rgba(255, 0, 0, 0.75),
   -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
@@ -473,7 +474,7 @@ video{
 }
 .form input{
   text-align: center;
-  margin: 0.5rem;
+  margin: 0.1rem;
 }
 .form textarea{
   margin: 0% auto;
@@ -482,12 +483,12 @@ video{
   height: 5rem;
 }
 button{
-  width: 5rem;
+  width: 6rem;
   margin: 0% auto;
-  padding: 1.5%;
-  margin-top: 2%;
+  padding: 2.5%;
+  margin-top: 5%;
   text-decoration: none;
-  background: var(--color3);
+  background:  var(--color5);
 color: white;
 text-shadow: 
 0.05em 0 0 rgba(255, 0, 0, 0.75),
@@ -517,4 +518,20 @@ box-shadow: #1c55511f 0.3rem 0.3rem 0.2rem;
   position: relative;
   display: block;
   width: 10%;
+}
+.jobPicture{
+  object-fit: contain;
+  width: 100%;
+  padding-top: 1%;
+}
+.left-info-container{
+  border-right: none;
+  background: #2e5c59;
+}
+strong{
+  font-size: 0.8rem;
+  word-spacing: 0.1rem;
+  font-weight: 500;
+  color: red;
+  background: yellow;
 }

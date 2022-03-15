@@ -5,9 +5,35 @@ import Picture3 from "./assets/images/Picture3.jpg";
 import Picture4 from "./assets/images/Picture4.jpg";
 import Picture5 from "./assets/images/Picture4.jpg";
 import email from "./assets/icons/email.svg";
+import { useState } from "react";
 import "./App.css";
 
+const initialState = {
+	firstName: "",
+	lastName: "",
+	email: "",
+	phoneNumber: "",
+	message: "",
+};
+const validateEmail = (input) => {
+	if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(input)) {
+		return true;
+	}
+	alert("You have entered an invalid email address!");
+	return false;
+};
 function App() {
+	const [state, setState] = useState(initialState);
+	const onInputChange = (event) => {
+		const { name, value } = event.target;
+		setState({ ...state, [name]: value });
+	};
+	const onInputSubmit = (event) => {
+		event.preventDefault();
+		console.log(state);
+		validateEmail(state.email);
+		setState(initialState);
+	};
 	return (
 		<div className="App">
 			<div>
@@ -77,7 +103,8 @@ function App() {
 					<div class="timeline">
 						<div class="timeline-container right">
 							<div class="content">
-								<img width="250rem" height="130vh" src={Picture1}></img>
+								<img className="jobPicture" src={Picture1}></img>
+
 								<p className="text2">Lawson</p>
 								<p className="text1">Forklift Operator</p>
 								<p className="text1">2021-Current</p>
@@ -89,7 +116,7 @@ function App() {
 						</div>
 						<div class="timeline-container left">
 							<div class="content">
-								<img width="250rem" height="130vh" src={Picture2}></img>
+								<img className="jobPicture" src={Picture2}></img>
 								<p className="text2">PARLEY </p>
 								<p className="text1">Intern</p>
 								<p className="text1">2021-2022</p>
@@ -101,7 +128,7 @@ function App() {
 						</div>
 						<div class="timeline-container right">
 							<div class="content">
-								<img width="250rem" height="130vh" src={Picture3}></img>
+								<img className="jobPicture" src={Picture3}></img>
 								<p className="text2">LOOP MEDIA </p>
 								<p className="text1">Intern</p>
 								<p className="text1">2021-2022</p>
@@ -113,7 +140,7 @@ function App() {
 						</div>
 						<div class="timeline-container left">
 							<div class="content">
-								<img width="250rem" height="130vh" src={Picture4}></img>
+								<img className="jobPicture" src={Picture4}></img>
 								<p className="text2">Five Star Communications</p>
 								<p className="text1">Cable Technician</p>
 								<p className="text1">2016-2021</p>
@@ -125,7 +152,7 @@ function App() {
 						</div>
 						<div class="timeline-container right">
 							<div class="content">
-								<img width="250rem" height="130vh" src={Picture5}></img>
+								<img className="jobPicture" src={Picture5}></img>
 								<p className="text2">Ceva</p>
 								<p className="text1">Forklift Operator</p>
 								<p className="text1">2020-2021</p>
@@ -143,7 +170,7 @@ function App() {
 						Any question or remarks? Just send me a message!
 					</p>
 					<div className="split-right container">
-						<div className="split-down container">
+						<div className="split-down container left-info-container">
 							<h2 className="container-body-title">Contact Information</h2>
 							<br />
 							<p className="container-body-info">
@@ -156,30 +183,67 @@ function App() {
 								<p className="email">JamariaxSims@gmail.com</p>
 							</div>
 						</div>
-						<div className="form split-down">
-							<div className="split-right">
-								<label htmlFor="firstName">
-									First Name <input id="firstName" type={"text"} />
-								</label>
+						<form>
+							<div className="form split-down">
+								<div className="split-right">
+									<label htmlFor="firstName">
+										First name{" "}
+										<input
+											id="firstName"
+											name="firstName"
+											value={state.firstName}
+											type={"text"}
+											onChange={onInputChange}
+										/>
+									</label>
+									<label htmlFor="lastName">
+										Last name{" "}
+										<input
+											id="lastName"
+											name="lastName"
+											value={state.lastName}
+											type={"text"}
+											onChange={onInputChange}
+										/>
+									</label>
+								</div>
+								<div className="split-right">
+									<label htmlFor="email">
+										Email address{" "}
+										<input
+											id="email"
+											name="email"
+											value={state.email}
+											type={"email"}
+											onChange={onInputChange}
+										/>
+									</label>
+									<label htmlFor="phoneNumber">
+										Phone number{" "}
+										<input
+											id="phoneNumber"
+											name="phoneNumber"
+											value={state.phoneNumber}
+											type={"number"}
+											onChange={onInputChange}
+										/>
+									</label>
+								</div>
 
-								<label htmlFor="lastName">
-									Last Name <input id="lastName" type={"text"} />
-								</label>
+								<label htmlFor="message">Message</label>
+								<textarea
+									id="message"
+									rows="5"
+									cols="40"
+									name="message"
+									value={state.message}
+									onChange={onInputChange}
+								/>
+								<button type="submit" onClick={onInputSubmit}>
+									SEND
+								</button>
 							</div>
-							<div className="split-right">
-								<label htmlFor="email">
-									Email <input id="email" type={"email"} />
-								</label>
-								<label htmlFor="phoneNumber">
-									Phone <input id="phoneNumber" type={"number"} />
-								</label>
-							</div>
-
-							<label htmlFor="message">Message</label>
-							<br></br>
-							<textarea id="message" rows="5" cols="40" />
-							<button>SEND</button>
-						</div>
+						</form>
 					</div>
 				</div>
 			</body>
