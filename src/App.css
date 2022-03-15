@@ -386,6 +386,9 @@ video{
     padding: 5%;
     font-size: 1.1rem;
 }
+.LinkContainer a:hover{
+  font-size: 1.5rem;
+}
 .Navbar .Hire
 {
     font-size: 1.5rem;
@@ -473,7 +476,7 @@ video{
   -0.05em 0.05em 0 rgba(0, 0, 255, 0.75)
 }
 .form input{
-  text-align: center;
+  text-align: left;
   margin: 0.1rem;
 }
 .form textarea{
@@ -488,8 +491,9 @@ button{
   padding: 2.5%;
   margin-top: 5%;
   text-decoration: none;
-  background:  var(--color5);
+  background:  none;
 color: white;
+transition: ease-out 0.3s;
 text-shadow: 
 0.05em 0 0 rgba(255, 0, 0, 0.75),
 -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
@@ -498,6 +502,18 @@ border-radius: 0.5rem;
 border: none;
 font-size: 1rem;
 box-shadow: #1c55511f 0.3rem 0.3rem 0.2rem;
+}
+button:hover{
+  font-size: 1.5rem;
+  width: 7rem;
+  background:  var(--color5);
+}
+button:focus{
+  animation: test1 .3s ;
+}
+@keyframes test1 {
+  50%{  background:  var(--color4); font-size: 1rem;}
+  100%{  background:  var(--color5);}
 }
 .email{
   font-size:var(--textSize1);
@@ -528,10 +544,4 @@ box-shadow: #1c55511f 0.3rem 0.3rem 0.2rem;
   border-right: none;
   background: #2e5c59;
 }
-strong{
-  font-size: 0.8rem;
-  word-spacing: 0.1rem;
-  font-weight: 500;
-  color: red;
-  background: yellow;
-}
+html { scroll-behavior: smooth; } 

@@ -7,6 +7,7 @@ import Picture5 from "./assets/images/Picture4.jpg";
 import email from "./assets/icons/email.svg";
 import { useState } from "react";
 import "./App.css";
+import emailjs from "emailjs-com";
 
 const initialState = {
 	firstName: "",
@@ -22,6 +23,27 @@ const validateEmail = (input) => {
 	alert("You have entered an invalid email address!");
 	return false;
 };
+
+const sendEmail = (e) => {
+	e.preventDefault();
+
+	emailjs
+		.sendForm(
+			"service_rfojsgq",
+			"template_jo44ype",
+			e.target,
+			"OvtRHPiCQy7ySLPDh"
+		)
+		.then(
+			(result) => {
+				console.log(result.text);
+			},
+			(error) => {
+				console.log(error.text);
+			}
+		);
+};
+
 function App() {
 	const [state, setState] = useState(initialState);
 	const onInputChange = (event) => {
@@ -31,7 +53,7 @@ function App() {
 	const onInputSubmit = (event) => {
 		event.preventDefault();
 		console.log(state);
-		validateEmail(state.email);
+		sendEmail(event);
 		setState(initialState);
 	};
 	return (
@@ -42,13 +64,9 @@ function App() {
 						<h1>jamaria</h1>
 					</div>
 					<div className="LinkContainer">
-						<a href="/Home">Home</a>
-
-						<a href="/About">About</a>
-
-						<a href="/Projects">Projects</a>
-
-						<a href="/Contact" className="Hire">
+						<a href="#AboutMe">About Me</a>
+						<a href="#Projects">Projects</a>
+						<a href="#ContactMe" className="Hire">
 							Hire Me
 						</a>
 					</div>
@@ -56,7 +74,7 @@ function App() {
 			</div>
 			<body className="split-down container">
 				<video autoPlay muted loop src={video1} />
-				<div className="introduction container">
+				<div id="AboutMe" className="introduction container">
 					<h2 className="container-title">Introduction</h2>
 					<p>
 						Hey there, I'm Jamaria! A full stack developer on a mission to
@@ -164,7 +182,8 @@ function App() {
 						</div>
 					</div>
 				</div>
-				<div className="split-down contactForm container">
+				<div></div>
+				<div id="ContactMe" className="split-down contactForm container">
 					<h2 className="container-title">Contact Me</h2>
 					<p className="container-title-info">
 						Any question or remarks? Just send me a message!
@@ -183,7 +202,7 @@ function App() {
 								<p className="email">JamariaxSims@gmail.com</p>
 							</div>
 						</div>
-						<form>
+						<form onSubmit={sendEmail}>
 							<div className="form split-down">
 								<div className="split-right">
 									<label htmlFor="firstName">
@@ -224,7 +243,7 @@ function App() {
 											id="phoneNumber"
 											name="phoneNumber"
 											value={state.phoneNumber}
-											type={"number"}
+											type={"text"}
 											onChange={onInputChange}
 										/>
 									</label>
@@ -239,9 +258,7 @@ function App() {
 									value={state.message}
 									onChange={onInputChange}
 								/>
-								<button type="submit" onClick={onInputSubmit}>
-									SEND
-								</button>
+								<button type="submit">SEND</button>
 							</div>
 						</form>
 					</div>
