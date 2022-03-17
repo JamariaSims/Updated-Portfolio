@@ -8,6 +8,7 @@ import email from "./assets/icons/email.svg";
 import { useState } from "react";
 import "./App.css";
 import emailjs from "emailjs-com";
+import NavigationBar from "./Components/NavigationBar";
 
 const initialState = {
 	firstName: "",
@@ -52,20 +53,7 @@ function App() {
 	};
 	return (
 		<div className="App">
-			<div>
-				<div className="Navigation">
-					<div className="NameHolder">
-						<h1>jamaria</h1>
-					</div>
-					<div className="LinkContainer">
-						<a href="#AboutMe">About Me</a>
-						<a href="#Projects">Projects</a>
-						<a href="#ContactMe" className="Hire">
-							Hire Me
-						</a>
-					</div>
-				</div>
-			</div>
+			<NavigationBar />
 			<body className="split-down container">
 				<video autoPlay muted loop src={video1} />
 				<div id="AboutMe" className="introduction container">
