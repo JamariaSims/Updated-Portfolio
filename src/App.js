@@ -34,22 +34,22 @@ function App() {
     const sendEmail = (e) => {
         e.preventDefault();
         toggleMsg(e);
-        // emailjs
-        //     .sendForm(
-        //         "service_rfojsgq",
-        //         "template_jo44ype",
-        //         e.target,
-        //         "OvtRHPiCQy7ySLPDh"
-        //     )
-        //     .then(
-        //         (result) => {
-        //             console.log(result.text);
-        //             setState(initialState);
-        //         },
-        //         (error) => {
-        //             console.log(error.text);
-        //         }
-        //     );
+        emailjs
+            .sendForm(
+                "service_rfojsgq",
+                "template_jo44ype",
+                e.target,
+                "OvtRHPiCQy7ySLPDh"
+            )
+            .then(
+                (result) => {
+                    console.log(result.text);
+                    setState(initialState);
+                },
+                (error) => {
+                    console.log(error.text);
+                }
+            );
     };
     return (
         <div className="App">
